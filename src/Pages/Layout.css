@@ -1,27 +1,47 @@
-body {
-  background-color: #454545;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-li {
+.navbar {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   float: left;
   display: block;
   text-align: center;
   padding: 14px 16px;
+}
+
+.navbar:hover,
+.navbar:active {
+  background-color: #9e0908;
+}
+
+.navbar:link {
   text-decoration: none;
 }
 
-li:hover {
-  background-color: #9e0908;
+#logo {
+  padding-left: 0%;
+  max-width: 75%;
+  max-height: 75%;
 }
+
+body {
+  background-color: #454545;
+}
+
+/* ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+} */
+
+/* li {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+} */
 
 nav {
   background-color: #9e0908;
-  height: 100px;
+  height: 125px;
+  position: sticky; /* Makes the navigation bar move with scroll  */
+  top: 0;
 }
