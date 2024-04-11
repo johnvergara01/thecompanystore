@@ -7,16 +7,13 @@ const Layout = () => {
     <>
       <nav>
         <ul>
-          <li class="navbar">
+          <li>
             <Link to="/">
               <img id="logo" src={logo} alt="logo" />
             </Link>
           </li>
           <li class="navbar">
-            <Link to="/items">Items</Link>
-          </li>
-          <li class="navbar">
-            <Link to="/moons">Moons</Link>
+            <Link to="/checkout">Checkout</Link>
           </li>
           <li class="navbar">
             <Link to="/decorations">Decorations</Link>
@@ -25,7 +22,10 @@ const Layout = () => {
             <Link to="/upgrades">Upgrades</Link>
           </li>
           <li class="navbar">
-            <Link to="/checkout">Checkout</Link>
+            <Link to="/items">Items</Link>
+          </li>
+          <li class="navbar">
+            <Link to="/moons">Moons</Link>
           </li>
         </ul>
       </nav>
