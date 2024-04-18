@@ -1,7 +1,6 @@
 .navbar {
   font-family: SubtitleFont;
   font-size: 30px;
-  color: white;
   float: right;
   display: block;
   text-align: center;
@@ -10,11 +9,16 @@
 }
 
 #logo {
-  position: fixed;
+  position: sticky;
   left: 15px;
-  max-width: 85%;
+  max-width: 95%;
   max-height: 85%;
-  padding-top: 4px;
+  padding-top: 5px;
+}
+
+.navlink {
+  text-decoration: none;
+  color: white;
 }
 
 .navbar:hover,
@@ -45,6 +49,7 @@ ul {
 li {
   float: left;
   display: block;
+  color: white;
 }
 
 @font-face {

@@ -1,20 +1,39 @@
 import { useParams } from "react-router-dom";
-import moon from "../Assets/Titan.png";
+import TitanImg from "../Assets/Titan.png";
+import RendImg from "../Assets/Rend.png";
 import "./MoonDetails.css";
+import { useEffect, useState } from "react";
 
 const MoonDetails = () => {
   const { moonId } = useParams();
+  const [moon, setMoon] = useState({ name: moonId });
+
+  useEffect(() => {
+    let tempMoonDB = [
+      { name: "8-Titan", image: TitanImg, sampleText: "Titan text" },
+      { name: "85-Rend", image: RendImg, sampleText: "Rend text" },
+    ];
+    switch (moonId) {
+      case "8-Titan":
+        setMoon(tempMoonDB[0]);
+        break;
+      case "85-Rend":
+        setMoon(tempMoonDB[1]);
+        break;
+      default:
+        console.log("no matches");
+    }
+  }, [moon, moonId]);
 
   return (
     <>
       <main className="container">
         <div className="left">
-          <img src={moon} alt="moon" />
+          <img src={moon.image} alt="moon" />
         </div>
         <div className="right">
           <div className="moon-title">
-            <h1>{moonId}</h1>
-            <h2>$700</h2>
+            <h1>{moon.name}</h1>
           </div>
           <div className="moon-descr">
             <p>

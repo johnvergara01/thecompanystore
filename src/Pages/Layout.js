@@ -3,6 +3,7 @@ import "./Layout.css";
 import logo from "../Assets/companylogo_nobg.png";
 
 const Layout = () => {
+
   return (
     <>
       <nav>
@@ -13,19 +14,19 @@ const Layout = () => {
             </Link>
           </li>
           <li class="navbar">
-            <Link to="/checkout">Checkout</Link>
+            <Link class="navlink" to="/checkout">Checkout</Link>
           </li>
           <li class="navbar">
-            <Link to="/decorations">Decorations</Link>
+            <Link class="navlink" to="/decorations">Decorations</Link>
           </li>
           <li class="navbar">
-            <Link to="/upgrades">Upgrades</Link>
+            <Link class="navlink" to="/upgrades">Upgrades</Link>
           </li>
           <li class="navbar">
-            <Link to="/items">Items</Link>
+            <Link class="navlink" to="/items">Items</Link>
           </li>
           <li class="navbar">
-            <Link to="/moons">Moons</Link>
+            <Link class="navlink" to="/moons">Moons</Link>
           </li>
         </ul>
       </nav>
