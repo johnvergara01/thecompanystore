@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import TitanImg from "../Assets/Titan.png";
 import RendImg from "../Assets/Rend.png";
-import "./MoonDetails.css";
+import ExpImg from "../Assets/Experimentation.png";
+import styles from "./MoonDetails.module.css";
 import { useEffect, useState } from "react";
 
 const MoonDetails = () => {
@@ -10,8 +11,13 @@ const MoonDetails = () => {
 
   useEffect(() => {
     let tempMoonDB = [
-      { name: "8-Titan", image: TitanImg, sampleText: "Titan text" },
-      { name: "85-Rend", image: RendImg, sampleText: "Rend text" },
+      { name: "8-Titan", image: TitanImg, text: "Titan text" },
+      { name: "85-Rend", image: RendImg, text: "Rend text" },
+      {
+        name: "41-Experimentation",
+        image: ExpImg,
+        text: "Experimentation text",
+      },
     ];
     switch (moonId) {
       case "8-Titan":
@@ -20,6 +26,9 @@ const MoonDetails = () => {
       case "85-Rend":
         setMoon(tempMoonDB[1]);
         break;
+      case "41-Experimentation":
+        setMoon(tempMoonDB[2]);
+        break;
       default:
         console.log("no matches");
     }
@@ -27,20 +36,16 @@ const MoonDetails = () => {
 
   return (
     <>
-      <main className="container">
-        <div className="left">
+      <main className={styles.container}>
+        <div className={styles.left}>
           <img src={moon.image} alt="moon" />
         </div>
-        <div className="right">
+        <div className={styles.right}>
           <div className="moon-title">
             <h1>{moon.name}</h1>
           </div>
           <div className="moon-descr">
-            <p>
-              It looks like this moon was mined for resources. It's easy to get
-              lost within the giant industrial complex. There are many entrances
-              to it littered about the landscape
-            </p>
+            <p>{moon.text}</p>
           </div>
           <div className="moon-attr">
             <div>Risk Level: S+</div>
