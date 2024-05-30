@@ -1,4 +1,5 @@
 import "./Items.css";
+import { QuantityPicker } from "./QuantityPicker.js";
 import { Link } from "react-router-dom";
 import { ShopContext } from "./Context.js";
 import { useContext } from "react";
@@ -25,6 +26,7 @@ const Items = () => {
           <p class="price">$25</p>
           <p>
             <button>Quantity</button>
+            <QuantityPicker min={0} max={5} />
             <button onClick={() => addToCart(1)}>Add to Cart</button>
           </p>
         </div>
@@ -38,7 +40,7 @@ const Items = () => {
           <p class="price">$15</p>
           <p>
             <button>Quantity</button>
-            <button>Add to Cart</button>
+            <button onClick={() => addToCart(2)}>Add to Cart</button>
           </p>
         </div>
       </div>
@@ -53,7 +55,7 @@ const Items = () => {
           <p class="price">$30</p>
           <p>
             <button>Quantity</button>
-            <button>Add to Cart</button>
+            <button onClick={() => addToCart(3)}>Add to Cart</button>
           </p>
         </div>
         <div class="card">
@@ -66,7 +68,7 @@ const Items = () => {
           <p class="price">$12</p>
           <p>
             <button>Quantity</button>
-            <button>Add to Cart</button>
+            <button onClick={() => addToCart(4)}>Add to Cart</button>
           </p>
         </div>
       </div>
