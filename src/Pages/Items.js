@@ -9,7 +9,7 @@ import shovel from "../Assets/Shovel.png";
 import walkietalkie from "../Assets/WalkieTalkie.png";
 
 const Items = () => {
-  const { addToCart } = useContext(ShopContext);
+  const { incItemQuantity, decItemQuantity, returnQuantity, addToCart, updateCartItemCount, cartItems } = useContext(ShopContext);
 
   return (
     <html>
@@ -26,7 +26,12 @@ const Items = () => {
           <p class="price">$25</p>
           <p>
             <button>Quantity</button>
-            <QuantityPicker min={0} max={5} />
+            <button onClick={() => decItemQuantity()}>-</button>
+            <input
+              value={returnQuantity()}
+              onChange={returnQuantity}
+            ></input>
+            <button onClick={() => incItemQuantity()}>+</button>
             <button onClick={() => addToCart(1)}>Add to Cart</button>
           </p>
         </div>

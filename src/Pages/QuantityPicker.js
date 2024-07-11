@@ -15,7 +15,7 @@ export class QuantityPicker extends Component {
       this.setState({ value: plusState });
       this.setState({ disable: false });
     }
-    if (this.state.value === this.props.max - 1) {
+    if (this.state.value === this.props.max - 1) {  
       this.setState({ disableInc: true });
     }
     if (this.state.value === this.props.min) {
@@ -36,6 +36,11 @@ export class QuantityPicker extends Component {
     if (this.state.value === this.props.max) {
       this.setState({ disableInc: false });
     }
+  }
+
+  // Added this
+  returnValue() {
+    return this.state.value;
   }
 
   render() {
