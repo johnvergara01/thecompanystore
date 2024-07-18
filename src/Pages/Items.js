@@ -1,19 +1,48 @@
-import "./Items.css";
-import { QuantityPicker } from "./QuantityPicker.js";
 import { Link } from "react-router-dom";
 import { ShopContext } from "./Context.js";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
+import { PRODUCTS } from "./Products";
+import styles from "./Items.module.css";
+
 import proflashlight from "../Assets/Pro-Flashlight.png";
 import flashlight from "../Assets/Flashlight.png";
 import shovel from "../Assets/Shovel.png";
 import walkietalkie from "../Assets/WalkieTalkie.png";
 
 const Items = () => {
-  const { incItemQuantity, decItemQuantity, returnQuantity, addToCart, updateCartItemCount, cartItems } = useContext(ShopContext);
+
+  const {
+    incItemQuantity,
+    decItemQuantity,
+    returnQuantity,
+    addToCart,
+    updateCartItemCount,
+    cartItems,
+  } = useContext(ShopContext);
+
+
+  const [qty, setQty] = useState(1);
+
+
+  useEffect(() => {
+    setQty(qty);
+  }, [qty]);
+
 
   return (
     <html>
+      
       <h1 id="itembanner">Items</h1>
+
+      <ul>
+        {PRODUCTS.length > 0 && PRODUCTS.map((productItem) => (
+          <div className={styles.card}>
+            <Link className={styles.cardlink} to={`/items/${productItem.productName}`}>
+            </Link>  
+          </div>
+        ))}
+      </ul>
+
 
       <div>
         <div class="card">
@@ -26,13 +55,13 @@ const Items = () => {
           <p class="price">$25</p>
           <p>
             <button>Quantity</button>
-            <button onClick={() => decItemQuantity()}>-</button>
+            <button onClick={() => setQty(qty - 1)}>-</button>
             <input
-              value={returnQuantity()}
-              onChange={returnQuantity}
+              value={qty}
+              onChange={(e) => setQty(Number(e.target.value))}
             ></input>
-            <button onClick={() => incItemQuantity()}>+</button>
-            <button onClick={() => addToCart(1)}>Add to Cart</button>
+            <button onClick={() => setQty(qty + 1)}>+</button>
+            <button onClick={() => addToCart(1, qty)}>Add to Cart</button>
           </p>
         </div>
         <div class="card">
