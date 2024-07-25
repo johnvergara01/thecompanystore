@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ShopContext } from "./Context";
 import { PRODUCTS } from "./Products";
 import { CartItem } from "./CartItem";
+import { MOONLIST } from "./MoonList";
 
 const Checkout = () => {
   const { cartItems } = useContext(ShopContext);
@@ -11,6 +12,9 @@ const Checkout = () => {
         <div>
           <h1>Checkout</h1>
         </div>
+        <div>
+          Items
+        </div>
         <div classname="checkout">
           {PRODUCTS.map((product) => {
             if (cartItems[product.id] !== 0) {
@@ -18,7 +22,14 @@ const Checkout = () => {
             }
           })}
         </div>
-
+        <div>
+          Moons
+        </div>
+        {/* <div>
+          {MOONLIST.map((moon) => {
+            if ()
+          })}
+        </div> */}
         
       </div>
     </>

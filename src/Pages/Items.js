@@ -12,17 +12,12 @@ import walkietalkie from "../Assets/WalkieTalkie.png";
 const Items = () => {
 
   const {
-    incItemQuantity,
-    decItemQuantity,
-    returnQuantity,
     addToCart,
     updateCartItemCount,
     cartItems,
   } = useContext(ShopContext);
 
-
   const [qty, setQty] = useState(1);
-
 
   useEffect(() => {
     setQty(qty);
@@ -61,7 +56,7 @@ const Items = () => {
               onChange={(e) => setQty(Number(e.target.value))}
             ></input>
             <button onClick={() => setQty(qty + 1)}>+</button>
-            <button onClick={() => addToCart(1, qty)}>Add to Cart</button>
+            <button onClick={() => addToCart('i1', qty)}>Add to Cart</button>
           </p>
         </div>
         <div class="card">

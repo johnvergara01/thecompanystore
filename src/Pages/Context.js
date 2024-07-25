@@ -1,15 +1,19 @@
 import { createContext, useState } from "react";
 import { PRODUCTS } from "./Products.js";
-
+import { MOONLIST } from "./MoonList.js";
 
 export const ShopContext = createContext(null);
 
-var quantity = 0;
-
 const getDefaultCart = () => {
-  let cart = {};
-  for (let i = 1; i < PRODUCTS.length + 1; i++) {
-    cart[i] = 0;
+  let cart = new Map();
+  for (let i = 0; i < PRODUCTS.length; i++) {
+    cart.set(PRODUCTS[i].id, 0);
+
+    // [ {id: 1, qty: 3}, {id:2, qty: 2}, {id: 3, qty: 2}, {id: 34, qty: 5} ];
+  }
+
+  for (let i = 0; i < MOONLIST.length; i++) {
+    cart.set(MOONLIST[i].id, 0);
   }
   return cart;
 };
@@ -17,43 +21,42 @@ const getDefaultCart = () => {
 export const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
 
-  const incItemQuantity = () => {   
-    quantity++;
-  }
-
-  const decItemQuantity = () => {
-    quantity--;
-  }
-
-  const returnQuantity = () => {
-    return quantity; 
-  }
-
   const addToCart = (itemID, quantity) => {
-    setCartItems((prev) => ({ ...prev, [itemID]: prev[itemID] + quantity}));
+    // OG
+    //setCartItems((prev) => ({ ...prev, [itemID]: prev[itemID] + quantity }));
+    console.log(cartItems);
+    setCartItems((cart) => cart.set(itemID, cart.get(itemID) + quantity));
+    console.log(cartItems);
   };
 
   const removeFromCart = (itemID) => {
-    setCartItems((prev) => ({ ...prev, [itemID]: prev[itemID] - 1}));
+    // OG
+    // setCartItems((prev) => ({ ...prev, [itemID]: prev[itemID] - 1 }));
+
+    setCartItems((cart) => cart.set(itemID, cart.get(itemID) - 1));
+    console.log(cartItems);
   };
 
   const removeAllFromCart = (itemID) => {
-    setCartItems((prev) => ({ ...prev, [itemID]: 0}));
+    // OG
+    // setCartItems((prev) => ({ ...prev, [itemID]: 0 }));
+
+    setCartItems((cart) => cart.set(itemID, 0));
   };
 
   const updateCartItemCount = (newAmount, itemID) => {
-    setCartItems((prev) => ({...prev, [itemID]: newAmount}));
+    // OG
+    // setCartItems((prev) => ({ ...prev, [itemID]: newAmount }));
+
+    setCartItems((cart) => cart.set(itemID, newAmount));
   };
 
   const contextValue = {
     cartItems,
-    incItemQuantity,
-    decItemQuantity,
-    returnQuantity,
     addToCart,
     removeFromCart,
     removeAllFromCart,
-    updateCartItemCount
+    updateCartItemCount,
   };
 
   console.log(cartItems);

@@ -5,25 +5,25 @@ import walkietalkie from '../Assets/WalkieTalkie.png';
 
 export const PRODUCTS = [
     {
-        id: 1,
+        id: 'i1',
         productName: 'Pro-Flashlight',
         price: 25,
         productImage: proflashlight,
     },
     {
-        id: 2,
+        id: 'i2',
         productName: 'Flashlight',
         price: 15,
         productImage: flashlight
     },
     {
-        id: 3,
+        id: 'i3',
         productName: 'Shovel',
         price: 30,
         productImage: shovel
     },
     {
-        id: 4,
+        id: 'i4',
         productName: 'Walkie Talkie',
         price: 12,
         productImage: walkietalkie
