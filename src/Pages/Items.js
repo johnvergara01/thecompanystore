@@ -4,42 +4,75 @@ import { useContext, useState, useEffect } from "react";
 import { PRODUCTS } from "./Products";
 import styles from "./Items.module.css";
 
-import proflashlight from "../Assets/Pro-Flashlight.png";
-import flashlight from "../Assets/Flashlight.png";
-import shovel from "../Assets/Shovel.png";
-import walkietalkie from "../Assets/WalkieTalkie.png";
-
 const Items = () => {
+  const { dropDownAddQuantity } = useContext(ShopContext);
 
-  const {
-    addToCart,
-    updateCartItemCount,
-    cartItems,
-  } = useContext(ShopContext);
+  // const [qty, setQty] = useState(1);
 
-  const [qty, setQty] = useState(1);
-
-  useEffect(() => {
-    setQty(qty);
-  }, [qty]);
+  // useEffect(() => {
+  //   setQty(qty);
+  // }, [qty]);
 
 
   return (
     <html>
-      
       <h1 id="itembanner">Items</h1>
 
       <ul>
-        {PRODUCTS.length > 0 && PRODUCTS.map((productItem) => (
-          <div className={styles.card}>
-            <Link className={styles.cardlink} to={`/items/${productItem.productName}`}>
-            </Link>  
-          </div>
-        ))}
+        {PRODUCTS.length > 0 &&
+          PRODUCTS.map((productItem) => (
+            <div className={styles.card}>
+              {/* <Link
+                className={styles.card}
+                to={`/items/${productItem.productName}`}
+              >
+              </Link> */}
+              <Link to={`/items/${productItem.productName}`}>
+                <img
+                    className={styles.productImg}
+                    src={productItem.productImage}
+                    alt="item for sale"
+                ></img>
+              </Link> 
+              <div>
+                <Link
+                  className={styles.cardlink}
+                  to={`/items/${productItem.productName}`}
+                >
+                  {productItem.productName}
+                </Link>
+              </div>
+              <div className={styles.price}>{`${productItem.price}'`} </div>
+              <div>
+                <p>Quantity</p>
+                <script src="Context.js"></script>
+                <label for="amt"></label>
+                <div class="dropdown">
+                  <select name="amt" id={`${productItem.id}`}>
+                    <option value={1}>1</option>
+                    <option value={2}>2</option>
+                    <option value={3}>3</option>
+                    <option value={4}>4</option>
+                    <option value={5}>5</option>
+                    <option value={6}>6</option>
+                    <option value={7}>7</option>
+                    <option value={8}>8</option>
+                    <option value={9}>9</option>
+                    <option value={10}>10</option>
+                  </select>
+                </div>
+                <div>
+                  <button onClick={() => dropDownAddQuantity(productItem.id)}>
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
       </ul>
+    </html>
 
-
-      <div>
+    /* <div>
         <div class="card">
           <Link class="cardlink" to="/items/Pro-flashlight">
             <img src={proflashlight} alt="Pro Flashlight" />
@@ -100,8 +133,7 @@ const Items = () => {
             <button onClick={() => addToCart(4)}>Add to Cart</button>
           </p>
         </div>
-      </div>
-    </html>
+      </div> */
   );
 };
 

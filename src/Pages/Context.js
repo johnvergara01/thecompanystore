@@ -24,9 +24,9 @@ export const ShopContextProvider = (props) => {
   const addToCart = (itemID, quantity) => {
     // OG
     //setCartItems((prev) => ({ ...prev, [itemID]: prev[itemID] + quantity }));
-    console.log(cartItems);
+    
     setCartItems((cart) => cart.set(itemID, cart.get(itemID) + quantity));
-    console.log(cartItems);
+    console.log(cartItems);   // delete later
   };
 
   const removeFromCart = (itemID) => {
@@ -51,12 +51,21 @@ export const ShopContextProvider = (props) => {
     setCartItems((cart) => cart.set(itemID, newAmount));
   };
 
+  const dropDownAddQuantity = (itemID) => {
+    var q = Number(document.getElementById(itemID).value);
+    console.log(q);   // delete later
+
+    addToCart(itemID, q);
+  };
+
   const contextValue = {
     cartItems,
     addToCart,
     removeFromCart,
     removeAllFromCart,
     updateCartItemCount,
+
+    dropDownAddQuantity,
   };
 
   console.log(cartItems);
