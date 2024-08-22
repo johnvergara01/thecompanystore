@@ -35,8 +35,9 @@
 }
 
 .price {
-  color: grey;
-  font-size: 22px;
+  color: #34c334;
+  font-size: 30px;
+  font-family: SubtitleFont;
 }
 
 .card button {
@@ -58,4 +59,9 @@
 .moonImg {
   max-width: 250px;
   max-height: 250px;
+}
+
+@font-face {
+  font-family: TextFont;
+  src: url("../Assets/Pokemon_Classic.ttf");
 }

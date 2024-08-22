@@ -11,6 +11,11 @@
     padding: 10px;
     margin-bottom: 50px;
   }
+
+  .container {
+    display: flex;
+    justify-content: space-around;
+  }
   
   .cardlist {
     display: block;
@@ -33,12 +38,13 @@
     font-size: 40px;
     text-decoration: none;
   }
-  
+
   .price {
-    color: grey;
-    font-size: 22px;
+    color: #34c334;
+    font-size: 30px;
+    font-family: SubtitleFont;
   }
-  
+
   .card button {
     border: none;
     outline: 0;
@@ -50,6 +56,13 @@
     width: 100%;
     font-size: 18px;
   }
+
+  .upgradeImg {
+    max-width: 150%;
+    max-height: 150%;
+    min-height: 50%;
+    min-width: 50%;
+  }
   
   .card button:hover {
     opacity: 0.7;
@@ -58,5 +71,10 @@
   .moonImg {
     max-width: 250px;
     max-height: 250px;
+  }
+
+  @font-face {
+    font-family: TextFont;
+    src: url("../Assets/Pokemon_Classic.ttf");
   }
   
