@@ -1,25 +1,24 @@
 import TeleporterImg from "../Assets/Teleporter.png";
 import InvTeleporterImg from "../Assets/Inv Teleporter.png";
 import LoudHornImg from "../Assets/Loud Horn.png";
-import styles from "./Upgrades.module.css";
 
 export const UPGRADES = [
     {
         id: "u1",
-        upgradeName: "Teleporter",
+        name: "Teleporter",
         price: 375,
-        upgradeImage: TeleporterImg
+        image: TeleporterImg
     },
     {
         id: "u2",
-        upgradeName: "Inverse Teleporter",
+        name: "Inverse Teleporter",
         price: 425,
-        upgradeImage: InvTeleporterImg
+        image: InvTeleporterImg
     },
     {
         id: "u3",
-        upgradeName: "Loud Horn",
+        name: "Loud Horn",
         price: 100,
-        upgradeImage: LoudHornImg
+        image: LoudHornImg
     }
 ];

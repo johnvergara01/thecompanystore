@@ -10,32 +10,27 @@ const Items = () => {
 
   return (
     <html>
-      <div className={styles.itembanner}>
+      <div className={styles.banner}>
         <h1>Items</h1>
       </div>
       <ul>
-        <div className={styles.container}>
+        <div className={styles.gridcontainer}>
           {PRODUCTS.length > 0 &&
             PRODUCTS.map((productItem) => (
               <div className={styles.card}>
-                {/* <Link
-                    className={styles.card}
-                    to={`/items/${productItem.productName}`}
-                  >
-                  </Link> */}
-                <Link to={`/items/${productItem.productName}`}>
+                <Link to={`/items/${productItem.name}`}>
                   <img
                     className={styles.productImg}
-                    src={productItem.productImage}
+                    src={productItem.image}
                     alt="item for sale"
                   ></img>
                 </Link>
                 <div>
                   <Link
                     className={styles.cardlink}
-                    to={`/items/${productItem.productName}`}
+                    to={`/items/${productItem.name}`}
                   >
-                    {productItem.productName}
+                    {productItem.name}
                   </Link>
                 </div>
                 <div className={styles.price}>{`${productItem.price}'`} </div>

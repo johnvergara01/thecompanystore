@@ -6,7 +6,6 @@ import decoration from "../Assets/Plushie.png";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-
   const d = new Date();
   const weekday = [
     "Sunday",
@@ -45,10 +44,18 @@ const Home = () => {
         Decorations
       </Link>
 
-      <img class="images moon" src={moon} alt="the moon" />
-      <img class="images item" src={item} alt="flashlight" />
-      <img class="images upgrade" src={upgrade} alt="teleporter" />
-      <img class="images decoration" src={decoration} alt="plushie" />
+      <Link to="/moons">
+        <img class="images moon" src={moon} alt="the moon" />
+      </Link>
+      <Link to="/items">
+        <img class="images item" src={item} alt="flashlight" />
+      </Link>
+      <Link to="/upgrades">
+        <img class="images upgrade" src={upgrade} alt="teleporter" />
+      </Link>
+      <Link to="/decorations">
+        <img class="images decoration" src={decoration} alt="plushie" />
+      </Link>
     </html>
   );
 };

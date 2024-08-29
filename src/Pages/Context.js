@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import { PRODUCTS } from "./Products.js";
 import { MOONLIST } from "./MoonList.js";
 import { UPGRADES } from "./UpgradeList.js";
+import { DECORATIONS } from "./DecorationList.js";
 
 export const ShopContext = createContext(null);
 
@@ -18,6 +19,10 @@ const getDefaultCart = () => {
 
   for (let i = 0; i < UPGRADES.length; i++) {
     cart.set(UPGRADES[i].id, 0);
+  }
+
+  for (let i = 0; i < DECORATIONS.length; i++) {
+    cart.set(DECORATIONS[i].id, 0);
   }
 
   return cart;
@@ -72,9 +77,12 @@ export const ShopContextProvider = (props) => {
 
   const dropDownAddQuantity = (itemID) => {
     var q = Number(document.getElementById(itemID).value);
-    console.log(q); // delete later
-
     addToCart(itemID, q);
+  };
+
+  const resetCart = () => {
+    const tempMap = new Map(getDefaultCart());
+    setCartItems(tempMap);
   };
 
   const contextValue = {
@@ -83,11 +91,9 @@ export const ShopContextProvider = (props) => {
     removeFromCart,
     removeAllFromCart,
     updateCartItemCount,
-
     dropDownAddQuantity,
+    resetCart,
   };
-
-  console.log(cartItems);
 
   return (
     <html>

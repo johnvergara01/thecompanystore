@@ -1,70 +1,75 @@
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import ProFlashlightImg from "../Assets/Pro-Flashlight.png";
-import FlashlightImg from "../Assets/Flashlight.png";
-import ShovelImg from "../Assets/Shovel.png";
-import WalkieTalkieImg from "../Assets/WalkieTalkie.png";
+import { useEffect, useState } from "react";
+import { ShopContext } from "./Context.js";
+import { useContext } from "react";
+import { PRODUCTS } from "./Products";
 import styles from "./ItemDetails.module.css";
 
 const ItemDetails = () => {
   const { itemId } = useParams();
   const [item, setItem] = useState({ name: itemId });
 
+  const findItem = (name, array) => {
+    const result = array.find((obj) => {
+      return obj.name === name;
+    });
+    return result;
+  };
+
   useEffect(() => {
-    //fetch itemId
-    let tempItemDB = [
-      {
-        name: "Pro Flashlight",
-        image: ProFlashlightImg,
-        text: "Pro Flashlight text",
-      },
-      { name: "Flashlight", image: FlashlightImg, text: "Flashlight text" },
-      { name: "Shovel", image: ShovelImg, text: "Shovel text" },
-      {
-        name: "Walkie Talkie",
-        image: WalkieTalkieImg,
-        text: "Walkie Talkie text",
-      },
-    ];
-    switch (itemId) {
-      case "Pro-flashlight":
-        setItem(tempItemDB[0]);
-        break;
-      case "Flashlight":
-        setItem(tempItemDB[1]);
-        break;
-      case "Shovel":
-        setItem(tempItemDB[2]);
-        break;
-      case "Walkie-talkie":
-        setItem(tempItemDB[3]);
-        break;
-      default:
-        console.log("no matches");
-    }
-  }, [item, itemId]);
+    //fetch item name
+    let product = findItem(itemId, PRODUCTS);
+    console.log("itemName", itemId);
+    console.log("product", product);
+    setItem(product);
+  }, [itemId]);
 
   return (
-    <>
-      <main className={styles.container}>
-        <div className={styles.left}>
-          <img src={item.image} alt="item" />
-        </div>
-        <div className={styles.right}>
-          <div className="item-title">
-            <h1>{item.name}</h1>
+    <html>
+      <div>
+        <main className={styles.container}>
+          <div className={styles.left}>
+            <img src={item.image} alt="item" />
           </div>
-          <div className="item-descr">
-            <p>{item.text}</p>
+          <div className={styles.right}>
+            <div className="item-title">
+              <h1>{item.name}</h1>
+            </div>
+            <div className="item-descr">
+              <p>{item.name}</p>
+            </div>
+            <div className="item-attr"></div>
+            <div>
+              <button className="add-to-cart">Add to Cart</button>
+            </div>
           </div>
-          <div className="item-attr"></div>
-          <div>
-            <button className="add-to-cart">Add to Cart</button>
-          </div>
-        </div>
-      </main>
-    </>
+        </main>
+      </div>
+    </html>
   );
+
+  // return (
+  //   <>
+  // <main className={styles.container}>
+  //   <div className={styles.left}>
+  //     <img src={item.image} alt="item" />
+  //   </div>
+  //   <div className={styles.right}>
+  //     <div className="item-title">
+  //       <h1>{item.name}</h1>
+  //     </div>
+  //     <div className="item-descr">
+  //       <p>{item.text}</p>
+  //     </div>
+  //     <div className="item-attr"></div>
+  //     <div>
+  //       <button className="add-to-cart">Add to Cart</button>
+  //     </div>
+  //   </div>
+  // </main>
+  //   </>
+  // );
 };
 
 export default ItemDetails;

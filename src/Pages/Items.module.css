@@ -1,27 +1,32 @@
-.itembanner {
+.banner {
   font-family: SubtitleFont;
   color: white;
   font-size: 40px;
   text-align: center;
   margin: auto;
   background-color: #a1a1a1;
-  width: 35%;
+  width: 100%;
   position: relative;
   top: 50px;
   padding: 10px;
+  margin-bottom: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.container {
-  display: flex;
+.gridcontainer {
+  display: grid;
   justify-content: space-around;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  padding: 10px;
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 1000px;
+  width: 700px;
   text-align: center;
   display: inline-block;
-  width: 50%;
   margin: 25px;
 }
 
@@ -56,10 +61,9 @@
 }
 
 .productImg {
-  max-width: 150%;
-  max-height: 150%;
-  min-height: 50%;
-  min-width: 50%;
+  height: 300px;
+  width: 300px;
+  padding: 10px;
 }
 
 .dropdown {

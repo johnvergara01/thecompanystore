@@ -5,8 +5,7 @@ import { MOONLIST } from "./MoonList";
 import styles from "./Moons.module.css";
 
 const Moons = () => {
-
-  const { dropDownAddQuantity } = useContext(ShopContext);
+  const { updateCartItemCount } = useContext(ShopContext);
 
   return (
     <html>
@@ -14,34 +13,36 @@ const Moons = () => {
         <h1>Moons</h1>
       </div>
       <ul>
-        {MOONLIST.length > 0 &&
-          MOONLIST.map((moonItem) => (
-            <div className={styles.card}>
-              <Link to={`/items/${moonItem.name}`}>
-                <img
-                    className={styles.productImg}
+        <div className={styles.gridcontainer}>
+          {MOONLIST.length > 0 &&
+            MOONLIST.map((moonItem) => (
+              <div className={styles.card}>
+                <Link to={`/items/${moonItem.name}`}>
+                  <img
+                    className={styles.moonImg}
                     src={moonItem.image}
                     alt="item for sale"
-                ></img>
-              </Link> 
-              <div>
-                <Link
-                  className={styles.cardlink}
-                  to={`/items/${moonItem.name}`}
-                >
-                  {moonItem.name}
+                  ></img>
                 </Link>
-              </div>
-              <div className={styles.price}>{`${moonItem.price}'`} </div>
-              <div>
                 <div>
-                  <button onClick={() => dropDownAddQuantity(moonItem.id)}>
-                    Add to Cart
-                  </button>
+                  <Link
+                    className={styles.cardlink}
+                    to={`/items/${moonItem.name}`}
+                  >
+                    {moonItem.name}
+                  </Link>
+                </div>
+                <div className={styles.price}>{`${moonItem.price}'`} </div>
+                <div>
+                  <div>
+                    <button onClick={() => updateCartItemCount(1, moonItem.id)}>
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
       </ul>
     </html>
   );

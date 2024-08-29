@@ -6,18 +6,7 @@ import styles from "./Upgrades.module.css";
 
 const Upgrades = () => {
 
-  const { dropDownAddQuantity } = useContext(ShopContext);
-
-  // const [upgradeList, setUpgradeList] = useState([]);
-
-  // useEffect(() => {
-  //   let tempArr = [];
-  //   for (let i = 0; i < tempUpgradeDB.length; i++) {
-  //     let tempUpgrade = tempUpgradeDB[i];
-  //     tempArr.push(tempUpgrade);
-  //   }
-  //   setUpgradeList(tempArr);
-  // }, [upgradeList]);
+  const { updateCartItemCount } = useContext(ShopContext);
 
   return (
     <html>
@@ -25,29 +14,29 @@ const Upgrades = () => {
         <h1>Upgrades</h1>
       </div>
       <ul>
-        <div className={styles.container}>
+        <div className={styles.gridcontainer}>
           {UPGRADES.length > 0 &&
             UPGRADES.map((upgradeItem) => (
               <div className={styles.card}>
-                <Link to={`/items/${upgradeItem.upgradeName}`}>
+                <Link to={`/items/${upgradeItem.name}`}>
                   <img
                     className={styles.upgradeImg}
-                    src={upgradeItem.upgradeImage}
+                    src={upgradeItem.image}
                     alt="upgrade for sale"
                   ></img>
                 </Link>
                 <div>
                   <Link
                     className={styles.cardlink}
-                    to={`/items/${upgradeItem.upgradeName}`}
+                    to={`/items/${upgradeItem.name}`}
                   >
-                    {upgradeItem.upgradeName}
+                    {upgradeItem.name}
                   </Link>
                 </div>
                 <div className={styles.price}> {`${upgradeItem.price}'`} </div>
                 <div>
                   <div>
-                    <button onClick={() => dropDownAddQuantity(upgradeItem.id)}>
+                    <button onClick={() => updateCartItemCount(1, upgradeItem.id)}>
                       Add to Cart
                     </button>
                   </div>

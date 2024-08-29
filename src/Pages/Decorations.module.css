@@ -1,62 +1,71 @@
 .banner {
-    font-family: SubtitleFont;
-    color: white;
-    font-size: 40px;
-    text-align: center;
-    margin: auto;
-    background-color: #a1a1a1;
-    width: 35%;
-    position: relative;
-    top: 50px;
-    padding: 10px;
-    margin-bottom: 50px;
-  }
-  
-  .cardlist {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 700px;
-    text-align: center;
-    display: inline-block;
-    width: 50%;
-    margin: 25px;
-  }
-  
-  .cardlink {
-    font-family: SubtitleFont;
-    color: white;
-    font-size: 40px;
-    text-decoration: none;
-  }
-  
-  .price {
-    color: grey;
-    font-size: 22px;
-  }
-  
-  .card button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #bd6304;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-  }
-  
-  .card button:hover {
-    opacity: 0.7;
-  }
-  
-  .decoImg {
-    max-width: 250px;
-    max-height: 250px;
-  }
-  
+  font-family: SubtitleFont;
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  margin: auto;
+  background-color: #a1a1a1;
+  width: 100%;
+  position: relative;
+  top: 50px;
+  padding: 10px;
+  margin-bottom: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.gridcontainer {
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  padding: 10px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 1000px;
+  width: 700px;
+  text-align: center;
+  display: inline-block;
+  margin: 25px;
+}
+
+.cardlink {
+  font-family: SubtitleFont;
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.price {
+  color: #34c334;
+  font-size: 30px;
+  font-family: SubtitleFont;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #bd6304;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.decoImg {
+  height: 300px;
+  width: 300px;
+  padding: 10px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.decoImg {
+  max-width: 250px;
+  max-height: 250px;
+}
