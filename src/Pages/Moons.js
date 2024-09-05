@@ -17,7 +17,7 @@ const Moons = () => {
           {MOONLIST.length > 0 &&
             MOONLIST.map((moonItem) => (
               <div className={styles.card}>
-                <Link to={`/items/${moonItem.name}`}>
+                <Link to={`/moons/${moonItem.name}`}>
                   <img
                     className={styles.moonImg}
                     src={moonItem.image}
@@ -27,7 +27,7 @@ const Moons = () => {
                 <div>
                   <Link
                     className={styles.cardlink}
-                    to={`/items/${moonItem.name}`}
+                    to={`/moons/${moonItem.name}`}
                   >
                     {moonItem.name}
                   </Link>

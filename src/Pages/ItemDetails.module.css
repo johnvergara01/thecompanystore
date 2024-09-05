@@ -1,25 +1,85 @@
 .container {
   display: flex;
-  max-width: 1000px;
-  padding: 30px;
+  max-width: 60%;
+  max-height: 1000px;
   margin: 0 auto;
+  margin-top: 60px;
 }
 
 .left {
   position: relative;
-  width: 60%;
+  width: 50%;
+  padding: 20px;
 }
 
 .left img {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: auto;
+  max-height: 1000px;
 }
 
 .right {
-  width: 40%;
-  margin-top: 60px;
+  width: 50%;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: #a1a1a1;
   text-align: center;
-  border-radius: 10%;
+  border-radius: 5%;
 }
 
+.right button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #bd6304;
+  text-align: center;
+  font-family: TextFont;
+  cursor: pointer;
+  width: 100%;
+  font-size: 15px;
+}
+
+.right h1 {
+  font-size: 50px;
+}
+
+.right h2 {
+  color: #34c334;
+  font-size: 45px;
+  font-family: SubtitleFont;
+}
+
+.right h3 {
+  color: white;
+  font-family: TextFont;
+  font-size: 20px;
+}
+
+.backButton {
+  border: none;
+  padding: 8px;
+  position: fixed;
+  left: 20px;
+  top: 150px;
+  color: white;
+  background-color: #bd6304;
+  text-align: center;
+  font-family: TextFont;
+  cursor: pointer;
+  width: 6%;
+  font-size: 18px;
+}
+
+.backButton:hover {
+  opacity: 0.7;
+}
+
+.right button:hover {
+  opacity: 0.7;
+}
+
+@font-face {
+  font-family: TextFont;
+  src: url("../Assets/Pokemon_Classic.ttf");
+}

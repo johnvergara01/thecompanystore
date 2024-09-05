@@ -1,55 +1,52 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import PlushieImg from "../Assets/Plushie.png";
-import ToiletImg from "../Assets/Toilet.png";
-import ShowerImg from "../Assets/Shower.png";
-import styles from "./DecorationDetails.module.css";
+import { FindItemName } from "../FindItem";
+import { DECORATIONS } from "./DecorationList";
+import styles from "./ItemDetails.module.css";
+import { ShopContext } from "./Context";
+import { useNavigate } from "react-router-dom";
 
 const DecorationDetails = () => {
+  const { updateCartItemCount } = useContext(ShopContext);
   const { decorationId } = useParams();
   const [decoration, setDecoration] = useState({ name: decorationId });
+  const nav = useNavigate();
 
   useEffect(() => {
-    //fetch id
-    let tempDecoDB = [
-      { name: "Plushie", image: PlushieImg, text: "Plushie text" },
-      { name: "Toilet", image: ToiletImg, text: "Toilet text" },
-      { name: "Shower", image: ShowerImg, text: "Shower text" },
-    ];
-    switch (decorationId) {
-      case "Plushie":
-        setDecoration(tempDecoDB[0]);
-        break;
-      case "Toilet":
-        setDecoration(tempDecoDB[1]);
-        break;
-      case "Shower":
-        setDecoration(tempDecoDB[2]);
-        break;
-      default:
-        console.log("no matches");
-    }
-  }, [decoration, decorationId]);
+    let temp = FindItemName(decorationId, DECORATIONS);
+    setDecoration(temp);
+  }, [decorationId]);
 
   return (
     <>
-      <main className={styles.container}>
+      <div>
+        <button className={styles.backButton} onClick={() => nav(-1)}>
+          Back
+        </button>
+      </div>
+      <div className={styles.container}>
         <div className={styles.left}>
-          <img src={decoration.image} alt="decoration" />
+          <img src={decoration.image} alt="item" />
         </div>
         <div className={styles.right}>
-          <div className="moon-title">
+          <div>
             <h1>{decoration.name}</h1>
           </div>
-          <div className="moon-descr">
-            <p>{decoration.text}</p>
-          </div>
-          <div className="moon-attr"></div>
           <div>
-            <button className="add-to-cart">Add to Cart</button>
+            <h2>{decoration.price}'</h2>
+          </div>
+          <div>
+            <p>{decoration.desc}</p>
+          </div>
+          <div>
+            <button
+              onClick={() => updateCartItemCount(1, decoration.id)}
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 };

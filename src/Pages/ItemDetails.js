@@ -1,75 +1,73 @@
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { PRODUCTS } from "./Products";
+import { FindItemName } from "../FindItem.js";
+import { useNavigate } from "react-router-dom";
 import { ShopContext } from "./Context.js";
 import { useContext } from "react";
-import { PRODUCTS } from "./Products";
 import styles from "./ItemDetails.module.css";
 
 const ItemDetails = () => {
   const { itemId } = useParams();
   const [item, setItem] = useState({ name: itemId });
-
-  const findItem = (name, array) => {
-    const result = array.find((obj) => {
-      return obj.name === name;
-    });
-    return result;
-  };
+  const nav = useNavigate();
 
   useEffect(() => {
-    //fetch item name
-    let product = findItem(itemId, PRODUCTS);
-    console.log("itemName", itemId);
-    console.log("product", product);
-    setItem(product);
+    let temp = FindItemName(itemId, PRODUCTS);
+    setItem(temp);
   }, [itemId]);
+
+  const { dropDownAddQuantity } = useContext(ShopContext);
 
   return (
     <html>
       <div>
-        <main className={styles.container}>
-          <div className={styles.left}>
-            <img src={item.image} alt="item" />
+        <button className={styles.backButton} onClick={() => nav(-1)}>
+          Back
+        </button>
+      </div>
+      <div className={styles.container}>
+        <div className={styles.left}>
+          <img src={item.image} alt="item" />
+        </div>
+        <div className={styles.right}>
+          <div>
+            <h1>{item.name}</h1>
           </div>
-          <div className={styles.right}>
-            <div className="item-title">
-              <h1>{item.name}</h1>
-            </div>
-            <div className="item-descr">
-              <p>{item.name}</p>
-            </div>
-            <div className="item-attr"></div>
-            <div>
-              <button className="add-to-cart">Add to Cart</button>
+          <div>
+            <h2>{item.price}'</h2>
+          </div>
+          <div>
+            <p>{item.desc}</p>
+          </div>
+          <div>
+            <h3>Quantity</h3>
+            <script src="Context.js"></script>
+            <label for="amt"></label>
+            <div class="dropdown">
+              <select name="amt" id={item.id}>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+                <option value={6}>6</option>
+                <option value={7}>7</option>
+                <option value={8}>8</option>
+                <option value={9}>9</option>
+                <option value={10}>10</option>
+              </select>
             </div>
           </div>
-        </main>
+          <div>
+            <button onClick={() => dropDownAddQuantity(item.id)}>
+              Add to Cart
+            </button>
+          </div>
+        </div>
       </div>
     </html>
   );
-
-  // return (
-  //   <>
-  // <main className={styles.container}>
-  //   <div className={styles.left}>
-  //     <img src={item.image} alt="item" />
-  //   </div>
-  //   <div className={styles.right}>
-  //     <div className="item-title">
-  //       <h1>{item.name}</h1>
-  //     </div>
-  //     <div className="item-descr">
-  //       <p>{item.text}</p>
-  //     </div>
-  //     <div className="item-attr"></div>
-  //     <div>
-  //       <button className="add-to-cart">Add to Cart</button>
-  //     </div>
-  //   </div>
-  // </main>
-  //   </>
-  // );
 };
 
 export default ItemDetails;

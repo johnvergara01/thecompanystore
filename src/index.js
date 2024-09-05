@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ShopContextProvider } from "./Pages/Context";
-import Layout from "./Pages/Layout";
+import Layout from "./Pages/Navbar";
 import Home from "./Pages/Home";
 import NoPage from "./Pages/NoPage";
 import Items from "./Pages/Items";
@@ -13,6 +13,7 @@ import Upgrades from "./Pages/Upgrades";
 import UpgradeDetails from "./Pages/UpgradeDetails";
 import MoonDetails from "./Pages/MoonDetails";
 import DecorationDetails from "./Pages/DecorationDetails";
+import Confirmation from "./Pages/Confirmation";
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
             <Route path="Upgrades" element={<Upgrades />} />
             <Route path="Upgrades/:upgradeId" element={<UpgradeDetails />} />
             <Route path="Checkout" element={<Checkout />} />
+            <Route path="Confirmation" element={<Confirmation />} />
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>

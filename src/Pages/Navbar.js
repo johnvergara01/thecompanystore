@@ -1,9 +1,8 @@
 import { Outlet, Link } from "react-router-dom";
-import "./Layout.css";
 import logo from "../Assets/companylogo_nobg.png";
+import styles from "./Navbar.module.css";
 
 const Layout = () => {
-
   return (
     <>
       <nav>
@@ -13,28 +12,28 @@ const Layout = () => {
               <img id="logo" src={logo} alt="logo" />
             </Link>
           </li>
-          <li class="navbar">
-            <Link class="navlink" to="/checkout">
+          <li className={styles.navbar}>
+            <Link className={styles.navlink} to="/checkout">
               Checkout
             </Link>
           </li>
-          <li class="navbar">
-            <Link class="navlink" to="/decorations">
+          <li className={styles.navbar}>
+            <Link className={styles.navlink} to="/decorations">
               Decorations
             </Link>
           </li>
-          <li class="navbar">
-            <Link class="navlink" to="/upgrades">
+          <li className={styles.navbar}>
+            <Link className={styles.navlink} to="/upgrades">
               Upgrades
             </Link>
           </li>
-          <li class="navbar">
-            <Link class="navlink" to="/items">
+          <li className={styles.navbar}>
+            <Link className={styles.navlink} to="/items">
               Items
             </Link>
           </li>
-          <li class="navbar">
-            <Link class="navlink" to="/moons">
+          <li className={styles.navbar}>
+            <Link className={styles.navlink} to="/moons">
               Moons
             </Link>
           </li>

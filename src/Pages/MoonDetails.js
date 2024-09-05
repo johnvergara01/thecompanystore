@@ -1,62 +1,52 @@
 import { useParams } from "react-router-dom";
-import TitanImg from "../Assets/Titan.png";
-import RendImg from "../Assets/Rend.png";
-import ExpImg from "../Assets/Experimentation.png";
-import styles from "./MoonDetails.module.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { FindItemName } from "../FindItem";
+import { MOONLIST } from "./MoonList";
+import styles from "./ItemDetails.module.css";
+import { ShopContext } from "./Context";
+import { useNavigate } from "react-router-dom";
 
 const MoonDetails = () => {
+  const { updateCartItemCount } = useContext(ShopContext);
   const { moonId } = useParams();
   const [moon, setMoon] = useState({ name: moonId });
+  const nav = useNavigate();
 
   useEffect(() => {
-    let tempMoonDB = [
-      { name: "8-Titan", image: TitanImg, text: "Titan text" },
-      { name: "85-Rend", image: RendImg, text: "Rend text" },
-      {
-        name: "41-Experimentation",
-        image: ExpImg,
-        text: "Experimentation text",
-      },
-    ];
-    switch (moonId) {
-      case "8-Titan":
-        setMoon(tempMoonDB[0]);
-        break;
-      case "85-Rend":
-        setMoon(tempMoonDB[1]);
-        break;
-      case "41-Experimentation":
-        setMoon(tempMoonDB[2]);
-        break;
-      default:
-        console.log("no matches");
-    }
-  }, [moon, moonId]);
+    let temp = FindItemName(moonId, MOONLIST);
+    setMoon(temp);
+  }, [moonId]);
 
   return (
     <>
-      <main className={styles.container}>
+      <div>
+        <button className={styles.backButton} onClick={() => nav(-1)}>
+          Back
+        </button>
+      </div>
+      <div className={styles.container}>
         <div className={styles.left}>
-          <img src={moon.image} alt="moon" />
+          <img src={moon.image} alt="item" />
         </div>
         <div className={styles.right}>
-          <div className="moon-title">
+          <div>
             <h1>{moon.name}</h1>
           </div>
-          <div className="moon-descr">
-            <p>{moon.text}</p>
-          </div>
-          <div className="moon-attr">
-            <div>Risk Level: S+</div>
-            <div>Difficulty: Hard</div>
-            <div>Map-Layout: Facility</div>
+          <div>
+            <h2>{moon.price}'</h2>
           </div>
           <div>
-            <button className="add-to-cart">Add to Cart</button>
+            <p>{moon.desc}</p>
+          </div>
+          <div>
+            <button
+              onClick={() => updateCartItemCount(1, moon.id)}
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 };

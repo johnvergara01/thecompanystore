@@ -5,24 +5,7 @@ import { DECORATIONS } from "./DecorationList.js";
 import styles from "./Decorations.module.css";
 
 const Decorations = () => {
-
   const { updateCartItemCount } = useContext(ShopContext);
-
-  // const [decoList, setDecoList] = useState([]);
-
-  // useEffect(() => {
-  //   let tempDecoDB = [
-  //     { name: "Plushie", image: PlushieImg, price: 100 },
-  //     { name: "Toilet", image: ToiletImg, price: 150 },
-  //     { name: "Shower", image: ShowerImg, price: 180 },
-  //   ];
-  //   let tempArr = [];
-  //   for (let i = 0; i < tempDecoDB.length; i++) {
-  //     let tempDeco = tempDecoDB[i];
-  //     tempArr.push(tempDeco);
-  //   }
-  //   setDecoList(tempArr);
-  // }, [decoList]);
 
   return (
     <html>
@@ -34,7 +17,7 @@ const Decorations = () => {
           {DECORATIONS.length > 0 &&
             DECORATIONS.map((decoItem) => (
               <div className={styles.card}>
-                <Link to={`/items/${decoItem.name}`}>
+                <Link to={`/decorations/${decoItem.name}`}>
                   <img
                     className={styles.decoImg}
                     src={decoItem.image}
@@ -44,7 +27,7 @@ const Decorations = () => {
                 <div>
                   <Link
                     className={styles.cardlink}
-                    to={`/items/${decoItem.name}`}
+                    to={`/decorations/${decoItem.name}`}
                   >
                     {decoItem.name}
                   </Link>

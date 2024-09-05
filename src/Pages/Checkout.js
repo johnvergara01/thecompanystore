@@ -6,19 +6,14 @@ import { MOONLIST } from "./MoonList";
 import { UPGRADES } from "./UpgradeList";
 import { DECORATIONS } from "./DecorationList";
 import styles from "./Checkout.module.css";
+import { FindItemId } from "../FindItem";
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
   const [tempCart, setTempCart] = useState([]);
   const [grandTotal, setGrandTotal] = useState(0);
   const [emptyCartFlag, setEmptyCartFlag] = useState(true);
   const { cartItems, resetCart } = useContext(ShopContext);
-
-  const findItem = (id, array) => {
-    const result = array.find((obj) => {
-      return obj.id === id;
-    });
-    return result;
-  };
 
   useEffect(() => {
     const tempArr = [];
@@ -28,16 +23,16 @@ const Checkout = () => {
       if (cartItems.get(id) > 0) {
         switch (id.charAt(0)) {
           case "i":
-            product = findItem(id, PRODUCTS);
+            product = FindItemId(id, PRODUCTS);
             break;
           case "m":
-            product = findItem(id, MOONLIST);
+            product = FindItemId(id, MOONLIST);
             break;
           case "u":
-            product = findItem(id, UPGRADES);
+            product = FindItemId(id, UPGRADES);
             break;
           case "d":
-            product = findItem(id, DECORATIONS);
+            product = FindItemId(id, DECORATIONS);
             break;
           default:
             product = 0;
@@ -80,7 +75,9 @@ const Checkout = () => {
             <div className={styles.card}>
               Grand Total: {grandTotal}
               <div>
-                <button onClick={() => resetCart()}>Submit Order</button>
+                <Link to="/confirmation">
+                  <button onClick={() => resetCart()}>Submit Order</button>
+                </Link>
               </div>
             </div>
           </div>
