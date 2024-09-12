@@ -1,5 +1,86 @@
-.image {
-  height: 300px;
-  width: 300px;
+.card {
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
+  border: 2px solid #a1a1a1;
+  width: 80%;
+  text-align: center;
+  display: inline-block;
+  margin: 25px;
+}
+
+.cardContainer {
+  display: flex;
+  padding: 20px;
+}
+
+.cardContainerLeft {
+  width: 50%;
+  /* border: 2px solid red; */
+  display: inline-block;
+  text-align: center;
+}
+
+.cardContainerRight {
+  width: 50%;
+  /* border: 2px solid blue; */
+  padding-top: 5%;
+}
+
+.quantityContainer {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto auto auto;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.cardlink {
+  font-family: SubtitleFont;
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.price {
+  color: #34c334;
+  font-size: 30px;
+  font-family: SubtitleFont;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #bd6304;
+  text-align: center;
+  font-family: TextFont;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.card input {
+  text-align: center;
+  font-family: TextFont;
+  font-size: 80%;
+  color: #bd6304;
+  border: none;
+  width: 100%;
+}
+
+.productImg {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  max-height: 400px;
   padding: 10px;
+}
+
+@font-face {
+  font-family: TextFont;
+  src: url("../Assets/Pokemon_Classic.ttf");
 }

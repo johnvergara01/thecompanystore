@@ -5,7 +5,7 @@ import { MOONLIST } from "./MoonList";
 import styles from "./Moons.module.css";
 
 const Moons = () => {
-  const { updateCartItemCount } = useContext(ShopContext);
+  const { moonAddToCart } = useContext(ShopContext);
 
   return (
     <html>
@@ -35,14 +35,14 @@ const Moons = () => {
                 <div className={styles.price}>{`${moonItem.price}'`} </div>
                 <div>
                   <div>
-                    <button onClick={() => updateCartItemCount(1, moonItem.id)}>
+                    <button onClick={() => moonAddToCart(moonItem.id)}>
                       Add to Cart
                     </button>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
+        </div>
       </ul>
     </html>
   );

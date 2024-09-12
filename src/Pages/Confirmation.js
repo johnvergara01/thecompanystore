@@ -1,12 +1,12 @@
+import styles from "./Confirmation.module.css";
+
 const Confirmation = () => {
   return (
     <html>
-      <div>
-        <h1>Order Confirmation</h1>
-      </div>
-      <div>
-        <p>Thank you for your order!</p>
+      <div className={styles.text}>
+        <p className={styles.thanks}>Thank you for your order!</p>
         <p>Your order confirmation # is 123456789</p>
+        <p>Your items will arrive momentarily</p>
       </div>
     </html>
   );

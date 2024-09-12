@@ -5,6 +5,7 @@ import { FindItemName } from "../FindItem.js";
 import { useNavigate } from "react-router-dom";
 import { ShopContext } from "./Context.js";
 import { useContext } from "react";
+import "react-toastify/dist/ReactToastify.css";
 import styles from "./ItemDetails.module.css";
 
 const ItemDetails = () => {
@@ -60,7 +61,11 @@ const ItemDetails = () => {
             </div>
           </div>
           <div>
-            <button onClick={() => dropDownAddQuantity(item.id)}>
+            <button
+              onClick={() => {
+                dropDownAddQuantity(item.id);
+              }}
+            >
               Add to Cart
             </button>
           </div>

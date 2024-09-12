@@ -7,7 +7,7 @@ import { ShopContext } from "./Context";
 import { useNavigate } from "react-router-dom";
 
 const MoonDetails = () => {
-  const { updateCartItemCount } = useContext(ShopContext);
+  const { moonAddToCart } = useContext(ShopContext);
   const { moonId } = useParams();
   const [moon, setMoon] = useState({ name: moonId });
   const nav = useNavigate();
@@ -39,11 +39,7 @@ const MoonDetails = () => {
             <p>{moon.desc}</p>
           </div>
           <div>
-            <button
-              onClick={() => updateCartItemCount(1, moon.id)}
-            >
-              Add to Cart
-            </button>
+            <button onClick={() => moonAddToCart(moon.id)}>Add to Cart</button>
           </div>
         </div>
       </div>

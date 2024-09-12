@@ -15,7 +15,7 @@
 .left img {
   width: 100%;
   height: auto;
-  max-height: 1000px;
+  max-height: 850px;
 }
 
 .right {
@@ -59,9 +59,9 @@
 .backButton {
   border: none;
   padding: 8px;
-  position: fixed;
+  position: relative;
   left: 20px;
-  top: 150px;
+  top: 25px;
   color: white;
   background-color: #bd6304;
   text-align: center;

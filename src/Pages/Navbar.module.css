@@ -32,6 +32,8 @@ nav {
   position: sticky;
   padding: 0;
   width: 100%;
+  top: 0;
+  z-index: 2;
 }
 
 body {

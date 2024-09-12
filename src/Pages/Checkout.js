@@ -66,19 +66,21 @@ const Checkout = () => {
         {emptyCartFlag ? (
           <div className={styles.banner}>Your cart is empty</div>
         ) : (
-          <div className={styles.gridcontainer}>
-            <div className={styles.card}>
-              {tempCart.map((item) => {
-                return <CartItem data={item}></CartItem>;
-              })}
-            </div>
-            <div className={styles.card}>
-              Grand Total: {grandTotal}
-              <div>
-                <Link to="/confirmation">
-                  <button onClick={() => resetCart()}>Submit Order</button>
-                </Link>
+          
+          <div className={styles.flexcontainer}>
+            <div className={styles.left}>
+              <h2> Your Items </h2>
+              <div className={styles.items}>
+                {tempCart.map((item) => {
+                  return <CartItem data={item}></CartItem>;
+                })}
               </div>
+            </div>
+            <div className={styles.right}>
+              <h2> Grand Total: {grandTotal}' </h2>
+              <Link to="/confirmation">
+                <button onClick={() => resetCart()}>Submit Order</button>
+              </Link>
             </div>
           </div>
         )}
