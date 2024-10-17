@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import { ShopContext } from "./Context.js";
 import { useContext } from "react";
-import { PRODUCTS } from "./Products";
 import styles from "./Items.module.css";
+import { CatalogContext } from "./Catalog.js";
+import { storage } from "../Config.js";
+import { getBlob, getDownloadURL, ref } from "firebase/storage";
 
 const Items = () => {
-  
   const { dropDownAddQuantity } = useContext(ShopContext);
+  const { PRODUCTS, productStatus } = useContext(CatalogContext);
 
   return (
     <html>
@@ -15,13 +17,13 @@ const Items = () => {
       </div>
       <ul>
         <div className={styles.gridcontainer}>
-          {PRODUCTS.length > 0 &&
+          {productStatus &&
             PRODUCTS.map((productItem) => (
               <div className={styles.card}>
                 <Link to={`/items/${productItem.name}`}>
                   <img
                     className={styles.productImg}
-                    src={productItem.image}
+                    src={productItem.imageSrc}
                     alt="item for sale"
                   ></img>
                 </Link>

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { PRODUCTS } from "./Products";
+import { CatalogContext } from "./Catalog.js";
 import { FindItemName } from "../FindItem.js";
 import { useNavigate } from "react-router-dom";
 import { ShopContext } from "./Context.js";
@@ -11,12 +11,13 @@ import styles from "./ItemDetails.module.css";
 const ItemDetails = () => {
   const { itemId } = useParams();
   const [item, setItem] = useState({ name: itemId });
+  const { PRODUCTS } = useContext(CatalogContext);
   const nav = useNavigate();
 
   useEffect(() => {
     let temp = FindItemName(itemId, PRODUCTS);
     setItem(temp);
-  }, [itemId]);
+  }, [itemId, PRODUCTS]);
 
   const { dropDownAddQuantity } = useContext(ShopContext);
 
@@ -29,7 +30,7 @@ const ItemDetails = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.left}>
-          <img src={item.image} alt="item" />
+          <img src={item.imageSrc} alt="item" />
         </div>
         <div className={styles.right}>
           <div>

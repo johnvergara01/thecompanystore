@@ -3,7 +3,7 @@ import { ShopContext } from "./Context";
 import styles from "./CartItem.module.css";
 
 export const CartItem = (props) => {
-  const { id, name, price, image } = props.data;
+  const { id, name, price, imageSrc } = props.data;
   const { cartItems, addToCart, removeFromCart, removeAllFromCart } =
     useContext(ShopContext);
 
@@ -16,7 +16,7 @@ export const CartItem = (props) => {
       <div className={styles.cardContainer}>
 
         <div className={styles.cardContainerLeft}>
-          <img className={styles.productImg} src={image} alt="product" />
+          <img className={styles.productImg} src={imageSrc} alt="product" />
         </div>
 
         <div className={styles.cardContainerRight}>

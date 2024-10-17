@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "./Context";
-import { PRODUCTS } from "./Products";
+import { CatalogContext } from "./Catalog";
 import { CartItem } from "./CartItem";
 import { MOONLIST } from "./MoonList";
 import { UPGRADES } from "./UpgradeList";
@@ -14,6 +14,7 @@ const Checkout = () => {
   const [grandTotal, setGrandTotal] = useState(0);
   const [emptyCartFlag, setEmptyCartFlag] = useState(true);
   const { cartItems, resetCart } = useContext(ShopContext);
+  const { PRODUCTS } = useContext(CatalogContext);
 
   useEffect(() => {
     const tempArr = [];
@@ -43,7 +44,7 @@ const Checkout = () => {
       }
     }
     setTempCart(tempArr);
-  }, [cartItems]);
+  }, [cartItems, PRODUCTS]);
 
   useEffect(() => {
     let total = 0;
@@ -66,7 +67,6 @@ const Checkout = () => {
         {emptyCartFlag ? (
           <div className={styles.banner}>Your cart is empty</div>
         ) : (
-          
           <div className={styles.flexcontainer}>
             <div className={styles.left}>
               <h2> Your Items </h2>

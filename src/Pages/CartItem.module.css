@@ -1,7 +1,7 @@
 .card {
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
   border: 2px solid #a1a1a1;
-  width: 80%;
+  min-width: 80%;
   text-align: center;
   display: inline-block;
   margin: 25px;
@@ -9,6 +9,7 @@
 
 .cardContainer {
   display: flex;
+  /* border: 2px solid blue; */
   padding: 20px;
 }
 

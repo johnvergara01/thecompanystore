@@ -105,7 +105,7 @@ export const ShopContextProvider = (props) => {
     resetCart,
   };
 
-  console.log(cartItems);
+  //console.log(cartItems);
 
   return (
     <html>
