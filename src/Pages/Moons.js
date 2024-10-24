@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { ShopContext } from "./Context.js";
 import { useContext } from "react";
-import { MOONLIST } from "./MoonList";
 import styles from "./Moons.module.css";
+import { CatalogContext } from "./Catalog.js";
 
 const Moons = () => {
   const { moonAddToCart } = useContext(ShopContext);
+  const { MOONS, moonStatus} = useContext(CatalogContext);
 
   return (
     <html>
@@ -14,13 +15,13 @@ const Moons = () => {
       </div>
       <ul>
         <div className={styles.gridcontainer}>
-          {MOONLIST.length > 0 &&
-            MOONLIST.map((moonItem) => (
+          {moonStatus &&
+            MOONS.map((moonItem) => (
               <div className={styles.card}>
                 <Link to={`/moons/${moonItem.name}`}>
                   <img
                     className={styles.moonImg}
-                    src={moonItem.image}
+                    src={moonItem.imageSrc}
                     alt="item for sale"
                   ></img>
                 </Link>

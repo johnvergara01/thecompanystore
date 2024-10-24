@@ -3,8 +3,6 @@ import { ShopContext } from "./Context.js";
 import { useContext } from "react";
 import styles from "./Items.module.css";
 import { CatalogContext } from "./Catalog.js";
-import { storage } from "../Config.js";
-import { getBlob, getDownloadURL, ref } from "firebase/storage";
 
 const Items = () => {
   const { dropDownAddQuantity } = useContext(ShopContext);

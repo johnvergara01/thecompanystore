@@ -2,9 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "./Context";
 import { CatalogContext } from "./Catalog";
 import { CartItem } from "./CartItem";
-import { MOONLIST } from "./MoonList";
-import { UPGRADES } from "./UpgradeList";
-import { DECORATIONS } from "./DecorationList";
 import styles from "./Checkout.module.css";
 import { FindItemId } from "../FindItem";
 import { Link } from "react-router-dom";
@@ -14,7 +11,7 @@ const Checkout = () => {
   const [grandTotal, setGrandTotal] = useState(0);
   const [emptyCartFlag, setEmptyCartFlag] = useState(true);
   const { cartItems, resetCart } = useContext(ShopContext);
-  const { PRODUCTS } = useContext(CatalogContext);
+  const { PRODUCTS, MOONS, UPGRADES, DECORATIONS } = useContext(CatalogContext);
 
   useEffect(() => {
     const tempArr = [];
@@ -27,7 +24,7 @@ const Checkout = () => {
             product = FindItemId(id, PRODUCTS);
             break;
           case "m":
-            product = FindItemId(id, MOONLIST);
+            product = FindItemId(id, MOONS);
             break;
           case "u":
             product = FindItemId(id, UPGRADES);

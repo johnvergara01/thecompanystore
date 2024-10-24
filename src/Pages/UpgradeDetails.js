@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FindItemName } from "../FindItem";
-import { UPGRADES } from "./UpgradeList";
 import styles from "./ItemDetails.module.css";
 import { ShopContext } from "./Context";
 import { useNavigate } from "react-router-dom";
+import { CatalogContext } from "./Catalog";
 
 const UpgradeDetails = () => {
   const { updateCartItemCount } = useContext(ShopContext);
   const { upgradeId } = useParams();
   const [upgrade, setUpgrade] = useState({ name: upgradeId });
+  const { UPGRADES } = useContext(CatalogContext);
   const nav = useNavigate();
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const UpgradeDetails = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.left}>
-          <img src={upgrade.image} alt="item" />
+          <img src={upgrade.imageSrc} alt="item" />
         </div>
         <div className={styles.right}>
           <div>

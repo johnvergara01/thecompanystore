@@ -1,19 +1,20 @@
 import { useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { FindItemName } from "../FindItem";
-import { MOONLIST } from "./MoonList";
 import styles from "./ItemDetails.module.css";
 import { ShopContext } from "./Context";
 import { useNavigate } from "react-router-dom";
+import { CatalogContext } from "./Catalog.js";
 
 const MoonDetails = () => {
   const { moonAddToCart } = useContext(ShopContext);
   const { moonId } = useParams();
   const [moon, setMoon] = useState({ name: moonId });
+  const { MOONS } = useContext(CatalogContext);
   const nav = useNavigate();
 
   useEffect(() => {
-    let temp = FindItemName(moonId, MOONLIST);
+    let temp = FindItemName(moonId, MOONS);
     setMoon(temp);
   }, [moonId]);
 
@@ -26,7 +27,7 @@ const MoonDetails = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.left}>
-          <img src={moon.image} alt="item" />
+          <img src={moon.imageSrc} alt="item" />
         </div>
         <div className={styles.right}>
           <div>

@@ -67,6 +67,28 @@
   padding: 10px;
 }
 
+@media screen and (max-width: 1700px) {
+  .gridcontainer {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .card {
+    width: 500px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .gridcontainer {
+    display: grid;
+    grid-template-columns: auto;
+  }
+  .card {
+    width: 400px;
+    height: auto;
+  }
+}
+
 @font-face {
   font-family: TextFont;
   src: url("../Assets/Pokemon_Classic.ttf");

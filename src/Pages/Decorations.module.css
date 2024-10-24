@@ -67,7 +67,30 @@
   opacity: 0.7;
 }
 
+
 .decoImg {
   max-width: 250px;
   max-height: 250px;
+}
+
+@media screen and (max-width: 1700px) {
+  .gridcontainer {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .card {
+    width: 500px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .gridcontainer {
+    display: grid;
+    grid-template-columns: auto;
+  }
+  .card {
+    width: 400px;
+    height: auto;
+  }
 }

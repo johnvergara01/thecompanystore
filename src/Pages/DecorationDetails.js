@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FindItemName } from "../FindItem";
-import { DECORATIONS } from "./DecorationList";
 import styles from "./ItemDetails.module.css";
 import { ShopContext } from "./Context";
 import { useNavigate } from "react-router-dom";
+import { CatalogContext } from "./Catalog";
 
 const DecorationDetails = () => {
   const { updateCartItemCount } = useContext(ShopContext);
   const { decorationId } = useParams();
   const [decoration, setDecoration] = useState({ name: decorationId });
+  const { DECORATIONS } = useContext(CatalogContext);
   const nav = useNavigate();
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const DecorationDetails = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.left}>
-          <img src={decoration.image} alt="item" />
+          <img src={decoration.imageSrc} alt="item" />
         </div>
         <div className={styles.right}>
           <div>

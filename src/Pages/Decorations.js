@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { ShopContext } from "./Context.js";
 import { useContext } from "react";
-import { DECORATIONS } from "./DecorationList.js";
 import styles from "./Decorations.module.css";
+import { CatalogContext } from "./Catalog.js";
 
 const Decorations = () => {
   const { updateCartItemCount } = useContext(ShopContext);
+  const { DECORATIONS, decorationStatus } = useContext(CatalogContext);
 
   return (
     <html>
@@ -14,13 +15,13 @@ const Decorations = () => {
       </div>
       <ul>
         <div className={styles.gridcontainer}>
-          {DECORATIONS.length > 0 &&
+          {decorationStatus > 0 &&
             DECORATIONS.map((decoItem) => (
               <div className={styles.card}>
                 <Link to={`/decorations/${decoItem.name}`}>
                   <img
                     className={styles.decoImg}
-                    src={decoItem.image}
+                    src={decoItem.imageSrc}
                     alt="decorations for sale"
                   ></img>
                 </Link>

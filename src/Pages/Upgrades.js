@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { ShopContext } from "./Context.js";
 import { useContext } from "react";
-import { UPGRADES } from "./UpgradeList.js";
 import styles from "./Upgrades.module.css";
+import { CatalogContext } from "./Catalog.js";
 
 const Upgrades = () => {
   const { updateCartItemCount } = useContext(ShopContext);
+  const { UPGRADES, upgradeStatus } = useContext(CatalogContext);
 
   return (
     <html>
@@ -14,13 +15,13 @@ const Upgrades = () => {
       </div>
       <ul>
         <div className={styles.gridcontainer}>
-          {UPGRADES.length > 0 &&
+          {upgradeStatus > 0 &&
             UPGRADES.map((upgradeItem) => (
               <div className={styles.card}>
                 <Link to={`/upgrades/${upgradeItem.name}`}>
                   <img
                     className={styles.upgradeImg}
-                    src={upgradeItem.image}
+                    src={upgradeItem.imageSrc}
                     alt="upgrade for sale"
                   ></img>
                 </Link>
