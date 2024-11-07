@@ -1,29 +1,28 @@
 .card {
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
   border: 2px solid #a1a1a1;
-  min-width: 80%;
-  max-width: 80%;
+  width: 85%;
   text-align: center;
-  display: inline-block;
+  display: inline-flex;         /* Change here to make cart items equal */
   margin: 25px;
 }
 
 .cardContainer {
   display: flex;
-  border: 2px solid blue;
+  border: 2px solid #a1a1a1;
   padding: 20px;
 }
 
 .cardContainerLeft {
   width: 50%;
-  border: 2px solid red;
-  display: inline-block;
-  text-align: center;
+  border: 2px solid #a1a1a1;
+  display: inline-block;          /* Change here to make cart items equal */  
+  text-align: center;             /* Change here to make cart items equal */  
 }
 
 .cardContainerRight {
   width: 50%;
-  border: 2px solid blue;
+  border: 2px solid #a1a1a1;
   padding-top: 5%;
 }
 

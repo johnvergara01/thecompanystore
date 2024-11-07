@@ -15,16 +15,12 @@
 
 .gridcontainer {
   display: grid;
-  justify-content: space-around;
-  grid-template-columns: auto auto auto;
-  gap: 10px;
-  padding: 10px;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fit, 500px);    /* Change to make it more responsive */
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 1000px;
-  width: 700px;
   text-align: center;
   display: inline-block;
   margin: 25px;

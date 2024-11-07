@@ -13,7 +13,7 @@ export const CartItem = (props) => {
 
   return (
     <div className={styles.card}>
-      <div className={styles.cardContainer}>
+      {/* <div className={styles.cardContainer}> */}
 
         <div className={styles.cardContainerLeft}>
           <img className={styles.productImg} src={imageSrc} alt="product" />
@@ -39,7 +39,7 @@ export const CartItem = (props) => {
           )}
         </div>
 
-      </div>
+      {/* </div> */}
 
     </div>
   );

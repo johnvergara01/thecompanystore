@@ -27,7 +27,8 @@
 }
 
 .items {
-  display: inline-block;
+  display: inline-block;   
+  min-width: 100%;         /* Change here to make cart items equal */
   text-align: center;
 }
 

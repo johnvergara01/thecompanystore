@@ -41,7 +41,7 @@ const Checkout = () => {
       }
     }
     setTempCart(tempArr);
-  }, [cartItems, PRODUCTS]);
+  }, [cartItems, PRODUCTS, MOONS, UPGRADES, DECORATIONS]);
 
   useEffect(() => {
     let total = 0;

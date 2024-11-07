@@ -26,7 +26,64 @@ const Home = () => {
         <h1> It is {day} my dude!! </h1>
       </div>
 
-      <span className={`${styles.backgrounds} ${styles.cell}`}></span>
+      <div class={styles.row}>
+
+        <div class={styles.column}>
+          <Link to="/items" class={styles.link}>
+            <div class={styles.card}>
+              <img
+                class={styles.img}
+                src={item}
+                alt="flashlight"
+              />
+              <h3>Items</h3>
+            </div>
+          </Link>
+        </div>
+
+        <div class={styles.column}>
+          <Link to="/moons" class={styles.link}>
+            <div class={styles.card}>
+              <img
+                class={styles.img}
+                src={moon}
+                alt="the moon"
+              />
+              <h3>Moons</h3>
+            </div>
+          </Link>
+        </div>
+
+        <div class={styles.column}>
+          <Link to="/upgrades" class={styles.link}>
+            <div class={styles.card}>
+              <img
+                class={styles.img}
+                src={upgrade}
+                alt="teleporter"
+              />
+              <h3>Upgrades</h3>     
+            </div>
+          </Link>
+        </div>
+
+        <div class={styles.column}>
+          <Link to="/decorations" class={styles.link}>
+            <div class={styles.card}>
+              <img
+                class={styles.img}
+                src={decoration}
+                alt="plushie"
+              />
+              <h3>Decorations</h3> 
+            </div>
+          </Link>
+        </div>
+
+      </div>
+
+{/* 
+      {/* <span className={`${styles.backgrounds} ${styles.cell}`}></span>
       <span className={`${styles.backgrounds} ${styles.cell}`}></span>
       <span className={`${styles.backgrounds} ${styles.cell}`}></span>
       <span className={`${styles.backgrounds} ${styles.cell}`}></span>
@@ -74,7 +131,7 @@ const Home = () => {
           src={decoration}
           alt="plushie"
         />
-      </Link>
+      </Link> */ }
     </html>
   );
 };
